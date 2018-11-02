@@ -1,0 +1,28 @@
+
+<div id="container">
+	<div id="tab1" class="tabcontent">
+	  <h3>LIST</h3>
+	</div>
+
+	<div id="tab2" class="tabcontent">
+	  <h3>ADD</h3>
+	</div>
+
+	<div id="tab3" class="tabcontent current">
+	  <h3>OVERDUE</h3>
+	</div>
+
+	<div id="tab4" class="tabcontent">
+	  <h3>NOTHING</h3>
+	</div>
+</div>
+
+<ul>
+<% @all_todos.each do |todo| %>
+  <% if todo.due_date != nil && todo.due_date < Date.today %>
+    <li>
+      <%= todo.title %>
+    </li>
+  <% end %>
+<% end %>
+</ul>

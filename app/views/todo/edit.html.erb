@@ -1,0 +1,27 @@
+<!-- app/views/contacts/edit.html.erb --> 
+<!-- 
+	메소드 : POST 
+	주소 : /add
+	컨트롤러 : contacts 
+	액션 : create 
+--> 
+
+<div class="add_form">
+<%= form_tag todo_path(@todo), method: "patch" do %> 
+	<div> 
+		Title : <%= text_area_tag :title, @todo.title %>
+	</div> 
+	<div> 
+		Content : <%= text_area_tag :content, @todo.content %>
+	</div> 
+	<div> 
+		due_date : <%= text_area_tag :due_date, @todo.due_date %>
+	</div> 
+	<div> 
+		priority :  <%= text_area_tag :priority, @todo.priority %>
+	</div> 
+	<div class="button"> 
+		<input type="submit" value="Add" /> <%= link_to '<button type="button">Cancel</button>'.html_safe, todo_index_path %>
+	</div> 
+<% end %>
+</div>

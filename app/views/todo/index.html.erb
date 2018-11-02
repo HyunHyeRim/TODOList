@@ -1,0 +1,47 @@
+
+
+<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+      
+<div id="container">
+  <div id="tab1" class="tabcontent current">
+    <h3>TODO LIST</h3>
+  </div>
+
+  <div id="tab2" class="tabcontent">
+    <h3>ADD</h3>
+  </div>
+
+  <div id="tab3" class="tabcontent">
+    <h3>DEADLINE</h3>
+  </div>
+
+  <div id="tab4" class="tabcontent">
+    <h3>NOTHING</h3>
+  </div>
+</div>
+
+<div class="list_form">
+<ul>
+<% @all_todos.each do |todo| %>
+  <% if todo.finish == true %>
+  <li class="complete">
+  	Title : <%= todo.title %> => done
+  </li>
+  Content : <%= todo.content %><br>
+  DueDate : <%= todo.due_date %>
+  <% else %>
+  <li>
+    Title : <%= todo.title %>
+  </li>
+  Content : <%= todo.content %><br>
+  DueDate : <%= todo.due_date %>
+  <% end %>
+  <div class = "index_button">
+    <%= link_to '<button type="button">완료</button>'.html_safe, todo_path(todo), method: "complete" %>
+    <%= link_to '<button type="button">수정</button>'.html_safe, edit_todo_path(todo) %>
+    <%= link_to '<button type="button">삭제</button>'.html_safe, todo_path(todo), method: "delete" %>
+  </div>
+  <br><br>
+<% end %>
+</ul>

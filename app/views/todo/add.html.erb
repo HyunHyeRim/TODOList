@@ -1,0 +1,44 @@
+<!-- app/views/contacts/new.html.erb --> 
+<!-- 
+	메소드 : POST 
+	주소 : /add
+	컨트롤러 : contacts 
+	액션 : create 
+--> 
+<div id="container">
+	<div id="tab1" class="tabcontent">
+	  <h3>LIST</h3>
+	</div>
+
+	<div id="tab2" class="tabcontent current">
+	  <h3>ADD</h3>
+	</div>
+
+	<div id="tab3" class="tabcontent">
+	  <h3>DEADLINE</h3>
+	</div>
+
+	<div id="tab4" class="tabcontent">
+	  <h3>NOTHING</h3>
+	</div>
+</div>
+
+<div class="add_form">
+<%= form_tag todo_index_path do %> 
+	<div> 
+		Title : <%= text_area_tag :title, nil, placeholder: "할 일을 입력하세요." %>
+	</div>
+	<div> 
+		Content : <%= text_area_tag :conetnt, nil, placeholder: "내용을 입력하세요." %>
+	</div>  
+	<div> 
+		due_date : <%= text_area_tag :due_date, nil, placeholder: "YYYY-MM-DD" %>
+	</div> 
+	<div> 
+		priority :  <%= text_area_tag :priority, nil %>
+	</div> 
+	<div class="button"> 
+		<input type="submit" value="Add" /> <%= link_to '<button type="button">Cancel</button>'.html_safe, todo_index_path %>
+	</div> 
+<% end %>
+</div>

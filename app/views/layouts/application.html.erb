@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TODOlist</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+  </head>
+
+  <body>
+      <h2>My TODO List</h2>
+      <ul class="tab">
+        <li data-tab="tab1"><a href='/index'>TODO</a></li>
+        <li data-tab="tab2"><a href="/add">ADD</a></li>
+        <li data-tab="tab3"><a href="/deadline">DEADLINE</a></li>
+        <li data-tab="tab4"><a href="#">NOTHING</a></li>
+      </ul>
+
+      <%= yield %>
+      
+    
+  </body>
+</html>
